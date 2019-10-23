@@ -66,7 +66,7 @@ class CustomCheckbox extends React.Component {
             errors={errors}
             name={name}
             onChange={this.handleInputNumberChange}
-            value={value || ''}
+            value={value && Number(value)}
           />
         )}
       </StyledCustomCheckbox>
@@ -81,7 +81,7 @@ CustomCheckbox.defaultProps = {
     id: 'app.utils.defaultMessage',
   },
   name: '',
-  value: null,
+  value: '',
 };
 
 CustomCheckbox.propTypes = {

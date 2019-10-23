@@ -164,7 +164,7 @@ InputNumberWithErrors.defaultProps = {
   style: {},
   tabIndex: '0',
   validations: {},
-  value: 0,
+  value: '0',
 };
 
 InputNumberWithErrors.propTypes = {
