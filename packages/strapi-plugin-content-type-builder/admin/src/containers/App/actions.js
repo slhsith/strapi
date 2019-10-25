@@ -691,7 +691,9 @@ export const formatModelAttributes = attributes =>
         const value = attributes[current][curr];
 
         if (
-          ((curr.includes('max') || curr.includes('min')) && !value) ||
+          ((curr.includes('max') || curr.includes('min')) &&
+            !isNaN(value) &&
+            value === null) ||
           curr === 'isVirtual' ||
           (curr === 'dominant' && !value) ||
           (curr === 'columnName' && value === '') ||
