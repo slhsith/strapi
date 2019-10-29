@@ -30,6 +30,7 @@ const VALID_COMPONENT_TYPES = [
 
   // nested component
   'component',
+  'dynamiczone',
 ];
 
 const validateComponentInput = data => {
