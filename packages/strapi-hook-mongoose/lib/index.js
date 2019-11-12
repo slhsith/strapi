@@ -60,7 +60,15 @@ module.exports = function(strapi) {
         } = connection.settings;
 
         const uriOptions = uri ? url.parse(uri, true).query : {};
-        const { authenticationDatabase, ssl, debug } = _.defaults(
+        const {
+          authenticationDatabase,
+          ssl,
+          sslValidate,
+          sslCA,
+          sslKey,
+          sslCert,
+          debug
+        } = _.defaults(
           connection.options,
           uriOptions,
           strapi.config.hook.settings.mongoose
@@ -83,6 +91,10 @@ module.exports = function(strapi) {
         }
 
         connectOptions.ssl = ssl === true || ssl === 'true';
+        connectOptions.sslValidate = sslValidate === true || sslValidate === 'true';
+        connectOptions.sslCA = sslCA;
+        connectOptions.sslKey = sslKey;
+        connectOptions.sslCert = sslCert;
         connectOptions.useNewUrlParser = true;
         connectOptions.dbName = database;
         connectOptions.useCreateIndex = true;
